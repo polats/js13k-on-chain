@@ -65,7 +65,7 @@
     "geth": "node ./_scripts.js geth",
     "geth:stop": "node ./_scripts.js geth:stop",
     "geth:dev": "node ./_scripts.js geth:dev",
-    "local:dev": "hardhat --network localhost deploy --watch",
+    "local:dev": "hardhat --network localhost deploy --watch  --export-all ../react-app/src/contracts/hardhat_contracts.json",
     "execute": "node ./_scripts.js run",
     "deploy": "node ./_scripts.js deploy",
     "verify": "node ./_scripts.js verify",

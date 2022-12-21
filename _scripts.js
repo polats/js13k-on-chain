@@ -116,7 +116,7 @@ async function performAction(rawArgs) {
 		await execute(`npm run local:dev`);
 	} else if (firstArg === 'deploy') {
 		const {fixedArgs, extra} = parseArgs(args, 1, {});
-		await execute(`hardhat --network ${fixedArgs[0]} deploy --report-gas ${extra.join(' ')}`);
+		await execute(`hardhat --network ${fixedArgs[0]} deploy --report-gas ${extra.join(' ')} --export-all ../react-app/src/contracts/hardhat_contracts.json`);
 	} else if (firstArg === 'verify') {
 		const {fixedArgs, extra} = parseArgs(args, 1, {});
 		const network = fixedArgs[0];
@@ -156,7 +156,7 @@ async function performAction(rawArgs) {
 				options.blockNumber ? `HARDHAT_FORK_NUMBER=${options.blockNumber}` : ''
 			} ${
 				options['no-impersonation'] ? `HARDHAT_DEPLOY_NO_IMPERSONATION=true` : ''
-			} hardhat deploy --report-gas ${extra.join(' ')}`
+			} hardhat deploy --report-gas ${extra.join(' ')}  --export-all ../react-app/src/contracts/hardhat_contracts.json`
 		);
 	} else if (firstArg === 'fork:node') {
 		const {fixedArgs, options, extra} = parseArgs(args, 1, {
